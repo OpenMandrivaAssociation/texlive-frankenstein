@@ -18,9 +18,6 @@ BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
 Requires(post):	texlive-kpathsea
-Conflicts:	texlive-texmf <= 20110705-3
-Conflicts:	texlive-doc <= 20110705-3
-Conflicts:	texlive-source <= 20110705-3
 
 %description
 Frankenstein is a bundle of LaTeX packages serving various
@@ -29,20 +26,12 @@ given under the individual packages: abbrevs, achicago package,
 achicago bibstyle, attrib, blkcntrl, compsci, dialogue, lips,
 moredefs, newclude, slemph, titles.
 
-%pre
-    %_texmf_mktexlsr_pre
-
 %post
-    %_texmf_mktexlsr_post
-
-%preun
-    if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_pre
-    fi
+    %{_sbindir}/texlive.post
 
 %postun
     if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_post
+	%{_sbindir}/texlive.post
     fi
 
 #-----------------------------------------------------------------------
@@ -137,7 +126,6 @@ moredefs, newclude, slemph, titles.
 %doc %{_texmfdistdir}/source/latex/frankenstein/newclude.ins
 %doc %{_texmfdistdir}/source/latex/frankenstein/slemph.ins
 %doc %{_texmfdistdir}/source/latex/frankenstein/titles.ins
-%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -148,5 +136,3 @@ moredefs, newclude, slemph, titles.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar bibtex tex doc source %{buildroot}%{_texmfdistdir}
-mkdir -p %{buildroot}%{_tlpkgobjdir}
-cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
