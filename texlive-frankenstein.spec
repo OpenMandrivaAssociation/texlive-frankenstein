@@ -136,3 +136,18 @@ moredefs, newclude, slemph, titles.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar bibtex tex doc source %{buildroot}%{_texmfdistdir}
+
+
+%changelog
+* Wed Jan 04 2012 Paulo Andrade <pcpa@mandriva.com.br> 20080819-2
++ Revision: 752095
+- Rebuild to reduce used resources
+
+* Tue Nov 08 2011 Paulo Andrade <pcpa@mandriva.com.br> 20080819-1
++ Revision: 729016
+- texlive-frankenstein
+- texlive-frankenstein
+- texlive-frankenstein
+- texlive-frankenstein
+- texlive-frankenstein
+
