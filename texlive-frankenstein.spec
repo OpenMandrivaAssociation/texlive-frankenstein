@@ -6,7 +6,7 @@
 # catalog-version undef
 Name:		texlive-frankenstein
 Version:	20080819
-Release:	7
+Release:	8
 Summary:	A collection of LaTeX packages
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/frankenstein
