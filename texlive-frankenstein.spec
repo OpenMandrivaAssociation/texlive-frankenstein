@@ -5,8 +5,8 @@
 # catalog-license gpl
 # catalog-version undef
 Name:		texlive-frankenstein
-Version:	20080819
-Release:	10
+Version:	20170414
+Release:	1
 Summary:	A collection of LaTeX packages
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/frankenstein
