@@ -5,7 +5,7 @@
 # catalog-license gpl
 # catalog-version undef
 Name:		texlive-frankenstein
-Version:	20170414
+Version:	20180303
 Release:	1
 Summary:	A collection of LaTeX packages
 Group:		Publishing
