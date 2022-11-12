@@ -1,19 +1,13 @@
-# revision 15878
-# category Package
-# catalog-ctan /macros/latex/contrib/frankenstein
-# catalog-date 2008-08-19 20:38:14 +0200
-# catalog-license gpl
-# catalog-version undef
 Name:		texlive-frankenstein
-Version:	20190228
+Version:	15878
 Release:	1
 Summary:	A collection of LaTeX packages
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/frankenstein
 License:	GPL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/frankenstein.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/frankenstein.doc.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/frankenstein.source.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/frankenstein.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/frankenstein.doc.r%{version}.tar.xz
+Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/frankenstein.source.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -27,12 +21,12 @@ achicago bibstyle, attrib, blkcntrl, compsci, dialogue, lips,
 moredefs, newclude, slemph, titles.
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -129,25 +123,11 @@ moredefs, newclude, slemph, titles.
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1 -a2
+%setup -c -a1 -a2
+%autopatch -p1
 
 %build
 
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar bibtex tex doc source %{buildroot}%{_texmfdistdir}
-
-
-%changelog
-* Wed Jan 04 2012 Paulo Andrade <pcpa@mandriva.com.br> 20080819-2
-+ Revision: 752095
-- Rebuild to reduce used resources
-
-* Tue Nov 08 2011 Paulo Andrade <pcpa@mandriva.com.br> 20080819-1
-+ Revision: 729016
-- texlive-frankenstein
-- texlive-frankenstein
-- texlive-frankenstein
-- texlive-frankenstein
-- texlive-frankenstein
-
